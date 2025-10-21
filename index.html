@@ -856,15 +856,17 @@
         </div>
         <div class="about-image">
           <div class="profile-card">
-            <div class="profile-img-container">
-              <div class="profile-placeholder">👤</div>
+            <div class="">
+              <!-- Inserted profile image. Place your photo at asset/profile.jpg -->
+              <img
+                src="asset/alrazipp.jpeg"
+                alt="Profile Photo"
+                class="profile-img"
+                onerror="this.style.display='none'"
+              />
             </div>
           </div>
-          <div class="upload-section">
-            <p>Upload Your Profile Photo</p>
-            <label for="photoInput" class="upload-btn">Choose Photo</label>
-            <input type="file" id="photoInput" accept="image/*" />
-          </div>
+          <!-- Static profile image - upload removed per request -->
         </div>
       </div>
     </section>
@@ -1053,22 +1055,7 @@
         observer.observe(el);
       });
 
-      // Profile Photo Upload
-      document
-        .getElementById("photoInput")
-        .addEventListener("change", function (e) {
-          const file = e.target.files[0];
-          if (file) {
-            const reader = new FileReader();
-            reader.onload = function (event) {
-              const container = document.querySelector(
-                ".profile-img-container"
-              );
-              container.innerHTML = `<img src="${event.target.result}" alt="Profile" class="profile-img">`;
-            };
-            reader.readAsDataURL(file);
-          }
-        });
+      // Profile photo is now static (loaded from asset/profile.jpg). Dynamic upload removed.
 
       // Portfolio Images Upload
       document
